@@ -1,0 +1,81 @@
+[
+  {
+    "id": "builtin_carousel-eSFJCS",
+    "formData": [
+      {
+        "title": "MA",
+        "subtitle": "SA",
+        "image": "/media/a5jifc8cp81msrbmz2l4-Picture1.png",
+        "actions": [
+          {
+            "title": "Button",
+            "action": "Open URL",
+            "url": "https://chartink.com/screener/bollinger-intraday-strategy-first-15-minutes-candle-high-low-outside"
+          }
+        ],
+        "typing": true
+      },
+      {
+        "title": "MA2",
+        "subtitle": "SA2",
+        "image": "/media/9prxwexzyl4u8wxcqbq0-Picture2.png",
+        "actions": [
+          {
+            "title": "button2",
+            "action": "Open URL",
+            "url": "https://github.com/jgorset/facebook-messenger/issues/220"
+          }
+        ],
+        "typing": true
+      }
+    ],
+    "createdBy": "admin",
+    "createdOn": "2018-08-23T06:06:23.647Z"
+  },
+  {
+    "id": "builtin_carousel-ru07GQ",
+    "formData": [
+      {
+        "title": "Home Loan",
+        "subtitle": "Home Loan",
+        "image": "/media/4sj7z7c0ufkp45336hfe-homeloan.jpg",
+        "actions": [
+          {
+            "title": "HomeLoan",
+            "action": "Open URL",
+            "url": "https://github.com/jgorset/facebook-messenger/issues/220"
+          }
+        ],
+        "typing": true
+      },
+      {
+        "title": "Vehicle Loan",
+        "subtitle": "Vehicle Loan",
+        "image": "/media/1orya7h5hgr1ev4gzgrr-vehicelloan.jpg",
+        "actions": [
+          {
+            "title": "Vehicle Loan",
+            "action": "Open URL",
+            "url": "https://github.com/jgorset/facebook-messenger/issues/220"
+          }
+        ],
+        "typing": true
+      },
+      {
+        "title": "Personal Loan",
+        "subtitle": "Personal Loan",
+        "image": "/media/gugcsp0ksag8qm3vp50i-personalloan.jpg",
+        "actions": [
+          {
+            "title": "Personal Loan",
+            "action": "Open URL",
+            "url": "https://github.com/jgorset/facebook-messenger/issues/220"
+          }
+        ],
+        "typing": true
+      }
+    ],
+    "createdBy": "admin",
+    "createdOn": "2018-08-23T06:29:30.908Z"
+  }
+]

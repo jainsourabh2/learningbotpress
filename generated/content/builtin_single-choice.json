@@ -1,0 +1,56 @@
+[
+  {
+    "id": "builtin_single-choice-AH2kYZ",
+    "formData": {
+      "text": "How can we help you today with?",
+      "choices": [
+        {
+          "title": "Fixed Deposits",
+          "value": "FD"
+        },
+        {
+          "title": "Loans",
+          "value": "Loans"
+        },
+        {
+          "title": "Account Opening",
+          "value": "AO"
+        },
+        {
+          "title": "Branch Locator",
+          "value": "BL"
+        },
+        {
+          "title": "Interest Rates",
+          "value": "IR"
+        }
+      ],
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-08-23T06:03:45.232Z"
+  },
+  {
+    "id": "builtin_single-choice-K0QS2G",
+    "formData": {
+      "text": "What kind of Bank Account do you want to open?",
+      "choices": [
+        {
+          "title": "Savings Account",
+          "value": "SA"
+        },
+        {
+          "title": "Personal Account",
+          "value": "PA"
+        },
+        {
+          "title": "Current Account",
+          "value": "CA"
+        }
+      ],
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-08-23T06:35:01.692Z"
+  }
+]

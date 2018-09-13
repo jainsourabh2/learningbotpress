@@ -1,0 +1,286 @@
+{
+  "version": "0.1",
+  "catchAll": {
+    "onReceive": [],
+    "next": [
+      {
+        "condition": "event.nlu.intent.is('forget')",
+        "node": "forget-my-name"
+      }
+    ]
+  },
+  "startNode": "Welcome",
+  "nodes": [
+    {
+      "id": "bda0320009",
+      "name": "welcome",
+      "onEnter": [
+        "say #!builtin_text-pSsHWg",
+        "getTotalNumberOfConversations {}"
+      ],
+      "onReceive": null,
+      "next": [
+        {
+          "condition": "state.$r === 0",
+          "node": "first-time"
+        },
+        {
+          "condition": "state.$r > 0",
+          "node": "many-times"
+        }
+      ]
+    },
+    {
+      "id": "7099199f90",
+      "name": "first-time",
+      "next": [],
+      "onEnter": [
+        "say #!builtin_text-AY5SSW",
+        "say #!builtin_text-X069Le"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "c69ee2d71f",
+      "name": "many-times",
+      "next": [],
+      "onEnter": [
+        "say #!builtin_text-bFsOmf"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "4f50a2e9fd",
+      "name": "forget-my-name",
+      "next": [],
+      "onEnter": [
+        "say #!builtin_text-TtzrCV",
+        "resetUserVariable {\"name\":\"nickname\"}",
+        "say #!builtin_text-kKQ8C3"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "a54a82eb7c",
+      "name": "entry",
+      "onEnter": [
+        "getUserVariable {\"name\":\"nickname\",\"output\":\"$r\"}"
+      ],
+      "onReceive": null,
+      "next": [
+        {
+          "condition": "state.$r !== null",
+          "node": "welcome"
+        },
+        {
+          "condition": "true",
+          "node": "ask-name"
+        }
+      ]
+    },
+    {
+      "id": "d29fc6b771",
+      "name": "ask-name",
+      "next": [
+        {
+          "condition": "true",
+          "node": "welcome"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-z0J9qh"
+      ],
+      "onReceive": [
+        "setUserVariable {\"name\":\"nickname\",\"value\":\"{{event.text}}\",\"expiry\":\"never\"}",
+        "getUserVariable {\"name\":\"nickname\",\"output\":\"$r\"}"
+      ]
+    },
+    {
+      "id": "skill-2a665f",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "MainMenu",
+      "flow": "skills/choice-2a665f.flow.json",
+      "next": [
+        {
+          "caption": "User picked [FD]",
+          "condition": "state['skill-choice-ret'] == \"FD\"",
+          "node": "FixedDeposits"
+        },
+        {
+          "caption": "User picked [Loans]",
+          "condition": "state['skill-choice-ret'] == \"Loans\"",
+          "node": "Loans"
+        },
+        {
+          "caption": "User picked [AO]",
+          "condition": "state['skill-choice-ret'] == \"AO\"",
+          "node": "AccountOpeningMenu"
+        },
+        {
+          "caption": "User picked [BL]",
+          "condition": "state['skill-choice-ret'] == \"BL\"",
+          "node": "CallFunction"
+        },
+        {
+          "caption": "User picked [IR]",
+          "condition": "state['skill-choice-ret'] == \"IR\"",
+          "node": "InterestRates"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": ""
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "8271347988",
+      "name": "FixedDeposits",
+      "next": [
+        {
+          "condition": "true",
+          "node": "END"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_carousel-eSFJCS"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "b48e0b31fc",
+      "name": "Loans",
+      "next": [
+        {
+          "condition": "true",
+          "node": "END"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_carousel-ru07GQ"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "skill-c59803",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "AccountOpeningMenu",
+      "flow": "skills/choice-c59803.flow.json",
+      "next": [
+        {
+          "caption": "User picked [SA]",
+          "condition": "state['skill-choice-ret'] == \"SA\"",
+          "node": "SavingsAccount"
+        },
+        {
+          "caption": "User picked [PA]",
+          "condition": "state['skill-choice-ret'] == \"PA\"",
+          "node": ""
+        },
+        {
+          "caption": "User picked [CA]",
+          "condition": "state['skill-choice-ret'] == \"CA\"",
+          "node": ""
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": ""
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "1e32faf315",
+      "name": "SavingsAccount",
+      "next": [
+        {
+          "condition": "true",
+          "node": "END"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-xnfseb"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "cd8ef6ae39",
+      "name": "intent-matching",
+      "next": [
+        {
+          "condition": "event.nlu.intent.is('loans')",
+          "node": "Loans"
+        },
+        {
+          "condition": "event.nlu.intent.is('accountopening')",
+          "node": "AccountOpeningMenu"
+        },
+        {
+          "condition": "true",
+          "node": "MainMenu"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null
+    },
+    {
+      "id": "598d05b0be",
+      "name": "Welcome",
+      "next": [
+        {
+          "condition": "true",
+          "node": "intent-matching"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-tus~9l"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "3111b41a21",
+      "name": "CallFunction",
+      "next": [
+        {
+          "condition": "true",
+          "node": "END"
+        }
+      ],
+      "onEnter": [
+        "startGame {\"channel\":\"web\",\"source\":\"browser\"}"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "bdc7fbf17d",
+      "name": "InterestRates",
+      "next": [
+        {
+          "condition": "state.val == \"Home Loan\"",
+          "node": "testingtext"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-oKKpFa"
+      ],
+      "onReceive": [
+        "startGame {}"
+      ]
+    },
+    {
+      "id": "7de43bac3c",
+      "name": "testingtext",
+      "next": [],
+      "onEnter": [
+        "say #!builtin_text-6Bfbsi"
+      ],
+      "onReceive": null
+    }
+  ]
+}
