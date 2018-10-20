@@ -9,6 +9,7 @@ const renderers = require('./renderers')
 const actionFiles = ['./actions.js']
 
 module.exports = async bp => {
+  //console.log("test here");
   await registerRenderers(bp)
   await registerActions(bp)
 }
@@ -48,7 +49,10 @@ async function registerActions(bp) {
 
 async function registerRenderers(bp) {
   // Register all your custom Content Renderers
+  //console.log("Inside Regstering Renderers");
   Object.keys(renderers).forEach(name => {
+    //console.log(name);
+    //console.log('##################');
     bp.renderers.register(name, renderers[name])
   })
 }

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>jQuery Demo</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <p id="demo"></p>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="js/scripts.js"></script>
+  <script src="https://4d1bfbcc.ngrok.io/api/botpress-platform-webchat/inject.js"></script>
+  <script>
+    window.botpressWebChat.init({
+      host: 'https://4d1bfbcc.ngrok.io',
+      botName: 'Money Bank', // Name of your bot
+      botAvatarUrl: 'https://i1.wp.com/www.leagueteamupdates.com/wp-content/uploads/2017/10/Italy-F.C-Team.jpg', // Default avatar URL of the image (e.g., 'https://avatars3.githubusercontent.com/u/1315508?v=4&s=400' )
+      botConvoTitle: 'Money Bank', // Title of the first conversation with the bot
+      botConvoDescription: 'This is Money Bank Bot!!',
+      backgroundColor: '#ffffff', // Color of the background
+      textColorOnBackground: '#666666', // Color of the text on the background
+      foregroundColor: '#0176ff', // Element background color (header, composer, button..)
+      textColorOnForeground: '#ffffff', // Element text color (header, composer, button..)
+      showUserName: false, // Whether or not to show the user's name
+      showUserAvatar: true, // Whether or not to show the user's avatar
+      enableTranscriptDownload: false, // Whether or not to show the transcript download button
+      hideWidget: false
+    })
+</script>
+</body>
+</html>

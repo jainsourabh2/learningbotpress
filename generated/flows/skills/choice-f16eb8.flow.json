@@ -1,0 +1,88 @@
+{
+  "version": "0.1",
+  "startNode": "entry",
+  "skillData": {
+    "contentId": "builtin_single-choice-6bIc0K",
+    "keywords": {
+      "OpenBankAccount": [
+        "OpenBankAccount",
+        "Open Bank Account"
+      ],
+      "BranchLocator": [
+        "BranchLocator",
+        "Branch Locator"
+      ],
+      "FixedDepositRates": [
+        "FixedDepositRates",
+        "Fixed Deposit Rates"
+      ]
+    },
+    "config": {}
+  },
+  "nodes": [
+    {
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_single-choice-6bIc0K {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "636614",
+      "onReceive": null
+    },
+    {
+      "name": "parse",
+      "onReceive": [
+        "__skill-choice-parse {\"contentId\":\"builtin_single-choice-6bIc0K\",\"keywords\":{\"OpenBankAccount\":[\"OpenBankAccount\",\"Open Bank Account\"],\"BranchLocator\":[\"BranchLocator\",\"Branch Locator\"],\"FixedDepositRates\":[\"FixedDepositRates\",\"Fixed Deposit Rates\"]},\"config\":{}}"
+      ],
+      "next": [
+        {
+          "condition": "state['skill-choice-valid'] === true",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "invalid"
+        }
+      ],
+      "id": "910991",
+      "onEnter": []
+    },
+    {
+      "name": "invalid",
+      "onEnter": [
+        "__skill-choice-invalid-inc"
+      ],
+      "next": [
+        {
+          "condition": "state['skill-choice-invalid-count'] <= 3",
+          "node": "sorry"
+        },
+        {
+          "condition": "true",
+          "node": "#"
+        }
+      ],
+      "id": "858525",
+      "onReceive": null
+    },
+    {
+      "name": "sorry",
+      "onEnter": [
+        "say #!builtin_single-choice-6bIc0K {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "846853",
+      "onReceive": null
+    }
+  ]
+}

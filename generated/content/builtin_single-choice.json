@@ -40,10 +40,6 @@
           "value": "SA"
         },
         {
-          "title": "Personal Account",
-          "value": "PA"
-        },
-        {
           "title": "Current Account",
           "value": "CA"
         }
@@ -52,5 +48,97 @@
     },
     "createdBy": "admin",
     "createdOn": "2018-08-23T06:35:01.692Z"
+  },
+  {
+    "id": "builtin_single-choice-gik5bD",
+    "formData": {
+      "text": "Please select appropriate customer type.",
+      "choices": [
+        {
+          "title": "Existing",
+          "value": "ExistingUser"
+        },
+        {
+          "title": "New",
+          "value": "NewUser"
+        }
+      ],
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-09-16T09:21:03.747Z"
+  },
+  {
+    "id": "builtin_single-choice-6bIc0K",
+    "formData": {
+      "text": "How can we help you today?",
+      "choices": [
+        {
+          "title": "Open Bank Account",
+          "value": "OpenBankAccount"
+        },
+        {
+          "title": "Branch Locator",
+          "value": "BranchLocator"
+        },
+        {
+          "title": "Fixed Deposit Rates",
+          "value": "FixedDepositRates"
+        }
+      ],
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-09-16T09:26:18.629Z"
+  },
+  {
+    "id": "builtin_single-choice-B4OFeU",
+    "formData": {
+      "text": "Please select appropriate category for which you are looking for!",
+      "choices": [
+        {
+          "title": "Senior Citizens",
+          "value": "Senior Citizens"
+        },
+        {
+          "title": "General",
+          "value": "General"
+        },
+        {
+          "title": "Womens",
+          "value": "Womens"
+        },
+        {
+          "title": "Students",
+          "value": "Students"
+        }
+      ],
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-09-24T09:37:13.767Z"
+  },
+  {
+    "id": "builtin_single-choice-kIcGo0",
+    "formData": {
+      "text": "How can we help you today?",
+      "choices": [
+        {
+          "title": "Book a Credit Card",
+          "value": "BookCreditCard"
+        },
+        {
+          "title": "Order Cheque Book",
+          "value": "OrderChequeBook"
+        },
+        {
+          "title": "Show Account Balance",
+          "value": "ShowAccountBalance"
+        }
+      ],
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-10-04T18:03:50.570Z"
   }
 ]

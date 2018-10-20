@@ -10,9 +10,11 @@ const registerCustom = require('./custom')
 module.exports = async bp => {
   // This bot template includes a couple of built-in elements and actions
   // Please see the "@botpress/builtins" package to know more
+  //console.log("Registering BuiltIns");
   await registerBuiltin(bp)
 
   // Register custom actions, elements and renderers
+  //console.log("Registering Custom Renderers");
   await registerCustom(bp)
 
   // Train the NLU model if using the Native NLU Engine
@@ -21,10 +23,10 @@ module.exports = async bp => {
   }
 
   const webchat = {
-    botName: 'Basic',
-    botAvatarUrl: null, // You can provide a URL here
-    botConvoTitle: 'Botpress Basic Webchat Bot',
-    botConvoDescription: "Hello, I'm a Botpress bot!",
+    botName: 'Bank Bot',
+    botAvatarUrl: 'https://i1.wp.com/www.leagueteamupdates.com/wp-content/uploads/2017/10/Italy-F.C-Team.jpg', // You can provide a URL here
+    botConvoTitle: 'Money Bank!!',
+    botConvoDescription: "This is Loan Processing Bot!",
     backgroundColor: '#ffffff',
     textColorOnBackground: '#666666',
     foregroundColor: '#000000',
@@ -47,7 +49,7 @@ module.exports = async bp => {
 
   // All events that should be processed by the Flow Manager
   bp.hear({ type: /visit/i }, async (event, next) => {
-    bp.renderers.sendToUser(event, '#builtin_text', { text: 'Welcome mate!!!', typing: true })
+    bp.renderers.sendToUser(event, '#builtin_text', { text: 'Welcome to Money Bank!!!', typing: true })
     next()
   })
 

@@ -230,20 +230,6 @@
       "onReceive": null
     },
     {
-      "id": "598d05b0be",
-      "name": "Welcome",
-      "next": [
-        {
-          "condition": "true",
-          "node": "intent-matching"
-        }
-      ],
-      "onEnter": [
-        "say #!builtin_text-tus~9l"
-      ],
-      "onReceive": null
-    },
-    {
       "id": "3111b41a21",
       "name": "CallFunction",
       "next": [
@@ -281,6 +267,528 @@
         "say #!builtin_text-6Bfbsi"
       ],
       "onReceive": null
+    },
+    {
+      "id": "skill-193d3d",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "UserTypeMenu",
+      "flow": "skills/choice-193d3d.flow.json",
+      "next": [
+        {
+          "caption": "User picked [Existing]",
+          "condition": "state['skill-choice-ret'] == \"Existing\"",
+          "node": "GetCustomerID"
+        },
+        {
+          "caption": "User picked [New]",
+          "condition": "state['skill-choice-ret'] == \"New\"",
+          "node": "NewUserMenu"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Welcome"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "skill-f16eb8",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "NewUserMenu",
+      "flow": "skills/choice-f16eb8.flow.json",
+      "next": [
+        {
+          "caption": "User picked [OpenBan...]",
+          "condition": "state['skill-choice-ret'] == \"OpenBankAccount\"",
+          "node": "BankAccountType"
+        },
+        {
+          "caption": "User picked [BranchL...]",
+          "condition": "state['skill-choice-ret'] == \"BranchLocator\"",
+          "node": "CityInput"
+        },
+        {
+          "caption": "User picked [FixedDe...]",
+          "condition": "state['skill-choice-ret'] == \"FixedDepositRates\"",
+          "node": "FixedDepositsTypeMenu"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": ""
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "c379ee921a",
+      "name": "CityInput",
+      "next": [
+        {
+          "condition": "true",
+          "node": "BranchDetails"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-uxWxHE"
+      ],
+      "onReceive": [
+        "branchLocator {}"
+      ]
+    },
+    {
+      "id": "dbdaacaf28",
+      "name": "BranchDetails",
+      "next": [
+        {
+          "condition": "true",
+          "node": "AwaitUserInput"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-oU~_nG"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "skill-e75a4c",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "BankAccountType",
+      "flow": "skills/choice-e75a4c.flow.json",
+      "next": [
+        {
+          "caption": "User picked [SA]",
+          "condition": "state['skill-choice-ret'] == \"SA\"",
+          "node": "SavingAccountDetails"
+        },
+        {
+          "caption": "User picked [CA]",
+          "condition": "state['skill-choice-ret'] == \"CA\"",
+          "node": "CurrentAccountDetails"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": ""
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "be6e5bf750",
+      "name": "SavingAccountDetails",
+      "next": [
+        {
+          "condition": "true",
+          "node": "Aadhar_OTP_Saving_Account"
+        }
+      ],
+      "onEnter": [
+        "accountDetails {\"accountType\":\"Savings\"}",
+        "say #!builtin_text-TI1tA6",
+        "say #!builtin_text-OMPSYg"
+      ],
+      "onReceive": [
+        "say #!builtin_text-qB1c~7"
+      ]
+    },
+    {
+      "id": "48f3630a86",
+      "name": "CurrentAccountDetails",
+      "next": [
+        {
+          "condition": "true",
+          "node": "Aadhar_OTP_Current_Account"
+        }
+      ],
+      "onEnter": [
+        "accountDetails {\"accountType\":\"Current\"}",
+        "say #!builtin_text-TI1tA6",
+        "say #!builtin_text-OMPSYg"
+      ],
+      "onReceive": [
+        "say #!builtin_text-qB1c~7"
+      ]
+    },
+    {
+      "id": "d3856fa0e2",
+      "name": "Welcome",
+      "next": [
+        {
+          "condition": "true",
+          "node": "UserTypeMenu"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-oWKHYh"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "0036773d02",
+      "name": "Aadhar_OTP_Saving_Account",
+      "next": [
+        {
+          "condition": "true",
+          "node": "AwaitUserInput"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": [
+        "say #!builtin_text-1C4eEX"
+      ]
+    },
+    {
+      "id": "286cf7bebb",
+      "name": "IntentRecognitionNew",
+      "next": [
+        {
+          "condition": "event.nlu.intent.is('branchdetails')",
+          "node": "CityInput"
+        },
+        {
+          "condition": "event.nlu.intent.is('accountopening')",
+          "node": "BankAccountType"
+        },
+        {
+          "condition": "event.nlu.intent.is('fixeddeposits')",
+          "node": "FixedDepositsTypeMenu"
+        },
+        {
+          "condition": "true",
+          "node": "UserTypeMenu"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": []
+    },
+    {
+      "id": "237e2aa939",
+      "name": "AwaitUserInput",
+      "next": [
+        {
+          "condition": "true",
+          "node": "IntentRecognitionNew"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null
+    },
+    {
+      "id": "skill-c70194",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "FixedDepositsTypeMenu",
+      "flow": "skills/choice-c70194.flow.json",
+      "next": [
+        {
+          "caption": "User picked [General]",
+          "condition": "state['skill-choice-ret'] == \"General\"",
+          "node": "FixedDepositDetails"
+        },
+        {
+          "caption": "User picked [Womens]",
+          "condition": "state['skill-choice-ret'] == \"Womens\"",
+          "node": "FixedDepositDetails"
+        },
+        {
+          "caption": "User picked [Students]",
+          "condition": "state['skill-choice-ret'] == \"Students\"",
+          "node": "FixedDepositDetails"
+        },
+        {
+          "caption": "User picked [Senior ...]",
+          "condition": "state['skill-choice-ret'] == \"Senior Citizens\"",
+          "node": "FixedDepositDetails"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": ""
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "308acb449e",
+      "name": "Aadhar_OTP_Current_Account",
+      "next": [
+        {
+          "condition": "true",
+          "node": "AwaitUserInput"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": [
+        "say #!builtin_text-xDrk3a"
+      ]
+    },
+    {
+      "id": "9e6467ef80",
+      "name": "FixedDepositDetails",
+      "next": [
+        {
+          "condition": "true",
+          "node": "AwaitUserInput"
+        }
+      ],
+      "onEnter": [
+        "fixedDepositDetails {}",
+        "say #!builtin_text-oCA4fQ"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "1f75572576",
+      "name": "GetCustomerID",
+      "next": [
+        {
+          "condition": "state.firstname == \"Unknown\"",
+          "node": "InvalidCustomerID"
+        },
+        {
+          "condition": "state.firstname !== \"Unknown\"",
+          "node": "ValidCustomerRoute"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-TbMqk9"
+      ],
+      "onReceive": [
+        "validCustomerID {}"
+      ]
+    },
+    {
+      "id": "d3b51d521e",
+      "name": "InvalidCustomerID",
+      "next": [
+        {
+          "condition": "true",
+          "node": "UserTypeMenu"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-MvE0Nl"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "fc45cddc71",
+      "name": "ValidCustomerRoute",
+      "next": [
+        {
+          "condition": "true",
+          "node": "ExistingCustomerMenu"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-YaWKBA"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "skill-5b54aa",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "ExistingCustomerMenu",
+      "flow": "skills/choice-5b54aa.flow.json",
+      "next": [
+        {
+          "caption": "User picked [BookCre...]",
+          "condition": "state['skill-choice-ret'] == \"BookCreditCard\"",
+          "node": "CreditCardOTPProcessing"
+        },
+        {
+          "caption": "User picked [OrderCh...]",
+          "condition": "state['skill-choice-ret'] == \"OrderChequeBook\"",
+          "node": "ChequeBookOTPProcessing"
+        },
+        {
+          "caption": "User picked [ShowAcc...]",
+          "condition": "state['skill-choice-ret'] == \"ShowAccountBalance\"",
+          "node": "ShowAccountBalacceAccountProcessing"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "Sorry"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "5486542406",
+      "name": "BookCreditCard",
+      "next": [
+        {
+          "condition": "true",
+          "node": "IntentRecognitionExisting"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-_MD1H2",
+        "bookCreditCard {}",
+        "say #!builtin_text-uZqJLP"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "6f9b3e29f9",
+      "name": "CreditCardOTPProcessing",
+      "next": [
+        {
+          "condition": "state.otpValidationStatus==1",
+          "node": "BookCreditCard"
+        },
+        {
+          "condition": "state.otpValidationStatus==0",
+          "node": "InvalidOTP"
+        }
+      ],
+      "onEnter": [
+        "generateOTP {}",
+        "say #!builtin_text-327pDF",
+        "say #!builtin_text-XrDl4t"
+      ],
+      "onReceive": [
+        "validateOTP {}"
+      ]
+    },
+    {
+      "id": "d6086a19c5",
+      "name": "InvalidOTP",
+      "next": [
+        {
+          "condition": "true",
+          "node": "CreditCardOTPProcessing"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-pLMGm7"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "6c8fe39ee2",
+      "name": "ChequeBookOTPProcessing",
+      "next": [
+        {
+          "condition": "state.otpValidationStatus==1",
+          "node": "ChequeBookRequest"
+        },
+        {
+          "condition": "state.otpValidationStatus==0",
+          "node": "InvalidOTP"
+        }
+      ],
+      "onEnter": [
+        "generateOTP {}",
+        "say #!builtin_text-327pDF",
+        "say #!builtin_text-XrDl4t"
+      ],
+      "onReceive": [
+        "validateOTP {}"
+      ]
+    },
+    {
+      "id": "461567c438",
+      "name": "ChequeBookRequest",
+      "next": [
+        {
+          "condition": "true",
+          "node": "IntentRecognitionExisting"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-zJBOaX",
+        "bookCreditCard {}",
+        "say #!builtin_text-Nh5COv"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "30eb017d87",
+      "name": "Sorry",
+      "next": [
+        {
+          "condition": "true",
+          "node": "ExistingCustomerMenu"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-8Lsn1C"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "f6a22117e9",
+      "name": "ShowAccountBalacceAccountProcessing",
+      "next": [
+        {
+          "condition": "state.otpValidationStatus==1",
+          "node": "showAccountBalance"
+        },
+        {
+          "condition": "state.otpValidationStatus==0",
+          "node": "InvalidOTP"
+        }
+      ],
+      "onEnter": [
+        "generateOTP {}",
+        "say #!builtin_text-327pDF",
+        "say #!builtin_text-XrDl4t"
+      ],
+      "onReceive": [
+        "validateOTP {}"
+      ]
+    },
+    {
+      "id": "0da7be74b7",
+      "name": "showAccountBalance",
+      "next": [
+        {
+          "condition": "true",
+          "node": "IntentRecognitionExisting"
+        }
+      ],
+      "onEnter": [
+        "showAccountBalance {}",
+        "say #!builtin_text-m55wVB"
+      ],
+      "onReceive": null
+    },
+    {
+      "id": "ffd581804f",
+      "name": "IntentRecognitionExisting",
+      "next": [
+        {
+          "condition": "event.nlu.intent.is('bookcreditcard')",
+          "node": "CreditCardOTPProcessing"
+        },
+        {
+          "condition": "event.nlu.intent.is('orderchequebook')",
+          "node": "ChequeBookOTPProcessing"
+        },
+        {
+          "condition": "event.nlu.intent.is('showaccountbalance')",
+          "node": "ShowAccountBalacceAccountProcessing"
+        },
+        {
+          "condition": "true",
+          "node": "ExistingCustomerMenu"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": []
     }
   ]
 }

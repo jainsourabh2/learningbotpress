@@ -9,17 +9,21 @@
   "dependencies": {
     "@botpress/analytics": "^10.33.2",
     "@botpress/audience": "10.31.0",
-    "@botpress/builtins": "10.31.0",
-    "@botpress/channel-messenger": "^10.34.0",
-    "@botpress/channel-slack": "^10.38.0",
-    "@botpress/channel-web": "10.31.0",
+    "@botpress/builtins": "^10.31.0",
+    "@botpress/channel-messenger": "^10.47.0",
+    "@botpress/channel-slack": "^10.47.0",
+    "@botpress/channel-telegram": "^10.41.1",
+    "@botpress/channel-web": "^10.40.0",
     "@botpress/hitl": "10.31.0",
-    "@botpress/nlu": "^10.31.0",
+    "@botpress/nlu": "^10.47.1",
     "@botpress/skill-choice": "10.31.0",
+    "axios": "^0.18.0",
     "botpress": "10.31.0",
     "jsdoc-api": "^4.0.3",
     "lodash": "^4.17.10",
-    "yn": "^2.0.0"
+    "request": "^2.88.0",
+    "yn": "^2.0.0",
+    "zalo-sdk": "^2.0.4"
   },
   "scripts": {
     "start": "node index.js",

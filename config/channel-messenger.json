@@ -1,14 +1,15 @@
 {
   /************
     THESE ARE REQUIRED FOR YOUR BOT TO RUN
+    https://developers.facebook.com/tools/explorer/
   *************/
 
   "applicationID": "1589660591156615", // ENV Variable: MESSENGER_APP_ID
-  "accessToken": "EAAEdJ4c1rTYBAAUXJdppZCTxWm9eWpfgQe4FZCSWylpZAXvZAilvzZA5wL1NK5jM1SLpdreonZCFd8zwOhlCscJ0jHQM7oC3Y9z6cQcMoZBGhcsqxgP9rCQ0CRZBKi8afW5hIzGzNalPY4r0eTYLt7TVapgpvjCwwXiRx77Do81rZBoR60GtRCgJHugvpTRkWJK7I508PLrkTLwZDZD", // ENV Variable: MESSENGER_ACCESS_TOKEN
+  "accessToken": "EAAEdJ4c1rTYBAIUWzCDjPR2ZACaZCB7g099rDNDJHNDW3rkSGuhpS7aTeQiuA42ocK64W3gpX4bfAcbDJNDL0FDn2KsZCkClZBj46BdNCGVE0WvYMew6mY8zzvxkLl8LubfIsi7qpK3vFRkZC8PX8Hr3PBT0ZCqwJM054MEGZBz4t8wXwVrgHvLYpRBA74TFUMLGYuDFjsBqgZDZD", // ENV Variable: MESSENGER_ACCESS_TOKEN
   "appSecret": "4d5a8072c5d6de2e6bcbe7714eabb3e9", // ENV Variable: MESSENGER_APP_SECRET
 
   "verifyToken": "jainsourabh2", // <== Input a long random, hard-to-guess string here
-  "hostname": "4c608ab1.ngrok.io", // The URL to reach your bot, must be HTTPS (google: ngrok)
+  "hostname": "d1668b2b.ngrok.io", // The URL to reach your bot, must be HTTPS (google: ngrok)
   /************
     Optional settings
   *************/

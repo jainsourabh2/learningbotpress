@@ -1,0 +1,85 @@
+{
+  "version": "0.1",
+  "startNode": "entry",
+  "skillData": {
+    "contentId": "builtin_single-choice-K0QS2G",
+    "keywords": {
+      "SA": [
+        "SA",
+        "Savings Account"
+      ],
+      "PA": [],
+      "CA": [
+        "CA",
+        "Current Account"
+      ]
+    },
+    "config": {}
+  },
+  "nodes": [
+    {
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_single-choice-K0QS2G {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "770301",
+      "onReceive": null
+    },
+    {
+      "name": "parse",
+      "onReceive": [
+        "__skill-choice-parse {\"contentId\":\"builtin_single-choice-K0QS2G\",\"keywords\":{\"SA\":[\"SA\",\"Savings Account\"],\"PA\":[],\"CA\":[\"CA\",\"Current Account\"]},\"config\":{}}"
+      ],
+      "next": [
+        {
+          "condition": "state['skill-choice-valid'] === true",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "invalid"
+        }
+      ],
+      "id": "956362",
+      "onEnter": []
+    },
+    {
+      "name": "invalid",
+      "onEnter": [
+        "__skill-choice-invalid-inc"
+      ],
+      "next": [
+        {
+          "condition": "state['skill-choice-invalid-count'] <= 3",
+          "node": "sorry"
+        },
+        {
+          "condition": "true",
+          "node": "#"
+        }
+      ],
+      "id": "379745",
+      "onReceive": null
+    },
+    {
+      "name": "sorry",
+      "onEnter": [
+        "say #!builtin_single-choice-K0QS2G {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "982024",
+      "onReceive": null
+    }
+  ]
+}

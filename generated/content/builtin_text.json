@@ -98,10 +98,221 @@
   {
     "id": "builtin_text-6Bfbsi",
     "formData": {
-      "text": "Completed testing successfully",
+      "text": "Completed testing successfully {{state.val}}",
       "typing": true
     },
     "createdBy": "admin",
     "createdOn": "2018-09-08T11:31:11.118Z"
+  },
+  {
+    "id": "builtin_text-4qYBka",
+    "formData": {
+      "text": "Please select appropriate customer type.",
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-09-16T09:18:37.682Z"
+  },
+  {
+    "id": "builtin_text-uxWxHE",
+    "formData": {
+      "text": "Please provide city for which you are looking branches.",
+      "variations": [
+        "Please input city name",
+        "Please provide city information"
+      ],
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-09-16T09:31:01.577Z"
+  },
+  {
+    "id": "builtin_text-oU~_nG",
+    "formData": {
+      "text": "Nearest branch is : \n{{state.responseBranch}}",
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-09-16T09:40:54.998Z"
+  },
+  {
+    "id": "builtin_text-TI1tA6",
+    "formData": {
+      "text": "Interest Rate for {{state.accountType}} Account is {{state.interestRate}} % per annum",
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-09-16T10:20:57.458Z"
+  },
+  {
+    "id": "builtin_text-OMPSYg",
+    "formData": {
+      "text": "Please provide your 12 digit Aadhar Number",
+      "variations": [
+        "Please input your 12 digit Aadhar Number",
+        "Please type in your 12 digit Aadhar Number"
+      ],
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-09-16T10:32:13.370Z"
+  },
+  {
+    "id": "builtin_text-oWKHYh",
+    "formData": {
+      "text": "Welcome To Money Bank!!",
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-09-16T13:02:43.156Z"
+  },
+  {
+    "id": "builtin_text-qB1c~7",
+    "formData": {
+      "text": "Please input pin sent to your registered mobile number.",
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-09-16T14:02:58.942Z"
+  },
+  {
+    "id": "builtin_text-1C4eEX",
+    "formData": {
+      "text": "Thanks, We have received your Savings Account Opening Application. Our customer representative will call you for other formalities. Have a nice day!",
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-09-16T14:05:14.889Z"
+  },
+  {
+    "id": "builtin_text-xDrk3a",
+    "formData": {
+      "text": "Thanks, We have received your Current Account Opening Application. Our customer representative will call you for other formalities. Have a nice day!",
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-09-16T14:33:15.353Z"
+  },
+  {
+    "id": "builtin_text-oCA4fQ",
+    "formData": {
+      "text": "Fixed Deposit Interest Rate for {{state.category}} category is {{state.fixedDepositRateOfInterest}} % per annum.",
+      "variations": [],
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-09-24T11:58:10.367Z"
+  },
+  {
+    "id": "builtin_text-TbMqk9",
+    "formData": {
+      "text": "Please input your 8 digit Customer ID!!",
+      "variations": [
+        "Please provide your 8 digit Customer ID!!",
+        "Provide your 8 digit Customer ID!!"
+      ],
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-10-02T16:09:54.848Z"
+  },
+  {
+    "id": "builtin_text-MvE0Nl",
+    "formData": {
+      "text": "Sorry the provided CustomerID {{state.customerId}}does not exist.",
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-10-04T15:12:10.873Z"
+  },
+  {
+    "id": "builtin_text-YaWKBA",
+    "formData": {
+      "text": "Welcome {{state.name}}!!",
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-10-04T17:51:18.211Z"
+  },
+  {
+    "id": "builtin_text-_MD1H2",
+    "formData": {
+      "text": "Booked a Credit Card request for {{state.name}} with CustomerID {{state.customerId}}",
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-10-04T18:06:41.121Z"
+  },
+  {
+    "id": "builtin_text-uZqJLP",
+    "formData": {
+      "text": "Your credit card request transaction number : {{state.transactionId}}",
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-10-04T18:39:34.564Z"
+  },
+  {
+    "id": "builtin_text-327pDF",
+    "formData": {
+      "text": "OTP has been successfully sent to registered mobile number : {{state.mobilenumber}} for CustomerID : {{state.customerId}}",
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-10-04T18:55:11.695Z"
+  },
+  {
+    "id": "builtin_text-XrDl4t",
+    "formData": {
+      "text": "Please input your OTP",
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-10-04T19:03:10.535Z"
+  },
+  {
+    "id": "builtin_text-pLMGm7",
+    "formData": {
+      "text": "You have entered incorrect OTP",
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-10-04T19:17:39.597Z"
+  },
+  {
+    "id": "builtin_text-zJBOaX",
+    "formData": {
+      "text": "Booked a Cheque book request for {{state.name}} with CustomerID : {{CustomerId}}",
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-10-04T19:27:31.730Z"
+  },
+  {
+    "id": "builtin_text-Nh5COv",
+    "formData": {
+      "text": "Your cheque book request transition number id : {{state.transactionId}}",
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-10-04T19:29:28.468Z"
+  },
+  {
+    "id": "builtin_text-8Lsn1C",
+    "formData": {
+      "text": "Sorry, we did not understand you.",
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-10-04T19:35:11.638Z"
+  },
+  {
+    "id": "builtin_text-m55wVB",
+    "formData": {
+      "text": "Account balance for {{state.name}} with CustomerID : {{state.customerId}} is {{state.accountBalance}} INR",
+      "typing": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2018-10-04T19:53:32.237Z"
   }
 ]

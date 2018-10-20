@@ -1,0 +1,91 @@
+{
+  "version": "0.1",
+  "startNode": "entry",
+  "skillData": {
+    "contentId": "builtin_single-choice-B4OFeU",
+    "keywords": {
+      "SC": [
+        "Senior Citizens"
+      ],
+      "General": [
+        "General"
+      ],
+      "Womens": [
+        "Womens"
+      ],
+      "Students": [
+        "Students"
+      ],
+      "Senior Citizens": [
+        "Senior Citizens"
+      ]
+    },
+    "config": {}
+  },
+  "nodes": [
+    {
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_single-choice-B4OFeU {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "454735",
+      "onReceive": null
+    },
+    {
+      "name": "parse",
+      "onReceive": [
+        "__skill-choice-parse {\"contentId\":\"builtin_single-choice-B4OFeU\",\"keywords\":{\"SC\":[\"Senior Citizens\"],\"General\":[\"General\"],\"Womens\":[\"Womens\"],\"Students\":[\"Students\"],\"Senior Citizens\":[\"Senior Citizens\"]},\"config\":{}}"
+      ],
+      "next": [
+        {
+          "condition": "state['skill-choice-valid'] === true",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "invalid"
+        }
+      ],
+      "id": "169528",
+      "onEnter": []
+    },
+    {
+      "name": "invalid",
+      "onEnter": [
+        "__skill-choice-invalid-inc"
+      ],
+      "next": [
+        {
+          "condition": "state['skill-choice-invalid-count'] <= 3",
+          "node": "sorry"
+        },
+        {
+          "condition": "true",
+          "node": "#"
+        }
+      ],
+      "id": "807198",
+      "onReceive": null
+    },
+    {
+      "name": "sorry",
+      "onEnter": [
+        "say #!builtin_single-choice-B4OFeU {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "451471",
+      "onReceive": null
+    }
+  ]
+}
